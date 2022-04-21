@@ -29,7 +29,7 @@ Bedrock is a modern WordPress stack inspired by [Twelve-Factor App](http://12fac
 
 2. Generate project:
 ```
-cookiecutter https://github.com/Frojd/Frojd-Bedrock.git
+cookiecutter https://github.com/digiaco/Frojd-Bedrock
 ```
 
 3. Insert your custom vars:
