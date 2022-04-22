@@ -156,7 +156,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               ansible-playbook deploy.yml -i stages/stage -b --become-user root
             fi
-
+            
             if [ "${CIRCLE_TAG}" ]; then
               ansible-playbook deploy.yml -i stages/prod -b --become-user root
             fi
