@@ -115,9 +115,7 @@ jobs:
             php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('https://composer.github.io/installer.sig'))) { echo 'Installer verified'; } else { echo 'Installer invalid'; unlink('composer-setup.php'); } echo PHP_EOL;"
             php composer-setup.php
             php -r "unlink('composer-setup.php');"
-      - run:
-          command: |
-            ACF_PRO_KEY=$ACF_PRO_KEY php composer.phar install --no-scripts --optimize-autoloader --no-dev
+    
       - *save_composer
       - *save_wp
 
@@ -174,9 +172,7 @@ workflows:
           requires:
             - checkout_code
       - wordpress:
-          <<: *filter_ignore_master
-          context:
-            - ACF_PRO_KEY
+          <<: *filter_ignore_master        
           requires:
             - checkout_code
       - ansible:
