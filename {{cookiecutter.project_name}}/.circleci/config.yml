@@ -90,9 +90,9 @@ jobs:
     steps:
       - *restore_repo
       - *restore_npm
-      - run: cd src/app/themes/main/frontend && npm install -b --become-user root
+      - run: cd src/app/themes/main/frontend && npm install
       - *save_npm
-      - run: cd src/app/themes/main/frontend && npm run build:production -b --become-user root
+      - run: cd src/app/themes/main/frontend && npm run build:production
       - *save_frontend
 
   wordpress:
@@ -154,11 +154,11 @@ jobs:
             ansible-galaxy install -r requirements.yml
 
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              ansible-playbook deploy.yml -i stages/stage
+              ansible-playbook deploy.yml -i stages/stage -b --become-user root
             fi
 
             if [ "${CIRCLE_TAG}" ]; then
-              ansible-playbook deploy.yml -i stages/prod
+              ansible-playbook deploy.yml -i stages/prod -b --become-user root
             fi
 
 workflows:
