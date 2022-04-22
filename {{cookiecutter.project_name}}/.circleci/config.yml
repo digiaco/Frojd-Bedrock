@@ -90,9 +90,9 @@ jobs:
     steps:
       - *restore_repo
       - *restore_npm
-      - run: cd src/app/themes/main/frontend && npm install
+      - run: cd src/app/themes/main/frontend && npm install -b --become-user root
       - *save_npm
-      - run: cd src/app/themes/main/frontend && npm run build:production
+      - run: cd src/app/themes/main/frontend && npm run build:production -b --become-user root
       - *save_frontend
 
   wordpress:
