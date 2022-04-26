@@ -1,3 +1,4 @@
+{% raw -%}
 - name: Setup directory permissions for all
   file:
     path: "{{ ansistrano_deploy_to }}/"
@@ -26,3 +27,4 @@
     recurse: yes
   with_items:
     - "{{ ansistrano_deploy_to }}/current"
+ {% endraw %}

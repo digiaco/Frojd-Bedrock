@@ -1,3 +1,4 @@
+{% raw -%}
 - name: Composer Install
   composer:
     command: install
@@ -28,3 +29,4 @@
 - name: Flush cache
   shell: chdir="{{ ansistrano_release_path.stdout }}"
     wp --allow-root cache flush
+{% endraw %}
