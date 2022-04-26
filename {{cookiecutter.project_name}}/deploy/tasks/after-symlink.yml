@@ -1,4 +1,8 @@
-{% raw -%}
+- name: Composer Install
+  composer:
+    command: install
+    working_dir: "{{ ansistrano_release_path.stdout }}"
+
 - name: Restart PHP
   service: name=php7.4-fpm state=restarted
   become: true
@@ -7,11 +11,20 @@
   service: name=nginx state=reloaded
   become: true
 
-# - name: Flush permalinks
-#   shell: chdir="{{ ansistrano_release_path.stdout }}"
-#     wp --allow-root rewrite flush
+- name: Setup directory permissions for all
+  file:
+    path: "{{ ansistrano_deploy_to }}"
+    state: directory
+    mode: 0775
+    owner: www-data
+    group: www-data
+    recurse: true
+    follow: yes
 
-# - name: Flush cache
-#   shell: chdir="{{ ansistrano_release_path.stdout }}"
-#     wp --allow-root cache flush
-{% endraw %}
+- name: Flush permalinks
+  shell: chdir="{{ ansistrano_release_path.stdout }}"
+    wp --allow-root rewrite flush
+
+- name: Flush cache
+  shell: chdir="{{ ansistrano_release_path.stdout }}"
+    wp --allow-root cache flush

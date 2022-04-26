@@ -121,6 +121,9 @@ add_action('acf/init', function () {
      * Icon list: @link https://developer.wordpress.org/resource/dashicons/
      * acf_register_block_type docs: @link https://www.advancedcustomfields.com/resources/acf_register_block_type/
      */
+    
+     if( ! function_exists( 'acf_register_block_type' ) )
+    return;
 
     // Image //
     acf_register_block_type([
