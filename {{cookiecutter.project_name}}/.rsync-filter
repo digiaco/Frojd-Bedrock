@@ -1,4 +1,4 @@
-- /src/app/uploads
+#- /src/app/uploads
 - /src/app/themes/main/node_modules
 - /db
 - /deploy
