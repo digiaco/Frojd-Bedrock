@@ -1,8 +1,3 @@
-- name: Composer Install
-  composer:
-    command: install
-    working_dir: "{{ ansistrano_release_path.stdout }}"
-
 - name: Restart PHP
   service: name=php7.4-fpm state=restarted
   become: true
