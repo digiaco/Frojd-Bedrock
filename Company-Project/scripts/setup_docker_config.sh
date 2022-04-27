@@ -14,10 +14,10 @@ fi
 cd $(git rev-parse --show-toplevel)
 
 # Ask the user for their name
-echo Enter ACF_PRO_KEY
-read ACF_PRO_KEY
+# echo Enter ACF_PRO_KEY
+# read ACF_PRO_KEY
 
 rm -rf docker/config/web.env
-cat docker/config/web.example.env | sed "s/%%ACF_PRO_KEY%%/$ACF_PRO_KEY/" > docker/config/web.env
+cat docker/config/web.example.env  > docker/config/web.env
 
 cd -

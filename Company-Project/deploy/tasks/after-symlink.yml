@@ -1,3 +1,8 @@
+- name: Composer Install
+  composer:
+    command: install
+    working_dir: "{{ ansistrano_release_path.stdout }}"
+
 - name: Restart PHP
   service: name=php7.4-fpm state=restarted
   become: true
@@ -5,6 +10,16 @@
 - name: Restart nginx
   service: name=nginx state=reloaded
   become: true
+
+- name: Setup directory permissions for all
+  file:
+    path: "{{ ansistrano_deploy_to }}"
+    state: directory
+    mode: 0775
+    owner: www-data
+    group: www-data
+    recurse: true
+    follow: yes
 
 - name: Flush permalinks
   shell: chdir="{{ ansistrano_release_path.stdout }}"
