@@ -4,12 +4,13 @@
 
   vars:
     ansistrano_deploy_from: "{{ playbook_dir }}/../"
-
-  vars_prompt:
-    - name: "acf_pro_key"
-      prompt: "Enter ACF_PRO_KEY"
-
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
+    - name: Install packages
+      apt: name={{item}}
+      with_items:
+        - python3-pip
+        - python3-mysqldb
     - name: Generates secrets/passwords
       set_fact:
         database_password: "{{ lookup('password', '/dev/null chars=ascii_letters length=40') }}"

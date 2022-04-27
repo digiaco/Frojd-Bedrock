@@ -1,9 +1,0 @@
-.article {
-    &__container {
-        @include wrap(site);
-    }
-
-    &__content {
-        @include wrap(content);
-    }
-}

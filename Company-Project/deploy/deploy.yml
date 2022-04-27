@@ -3,7 +3,7 @@
   hosts: all
   vars:
     ansistrano_deploy_from: "{{ playbook_dir }}/../"
-    ansistrano_keep_releases: 3
+    ansistrano_keep_releases: 4
     ansistrano_rsync_extra_params: "--exclude=frontend/node_modules"
     ansistrano_deploy_via: rsync
 

@@ -30,10 +30,6 @@
         {
             "type": "composer",
             "url": "https://wpackagist.org"
-        },
-        {
-            "type": "composer",
-            "url": "https://pivvenit.github.io/acf-composer-bridge/composer/v3/wordpress-muplugin/"
         }
     ],
     "require": {
@@ -43,7 +39,6 @@
         "johnpbloch/wordpress": "*",
         "sentry/sdk": "*",
         "wpackagist-plugin/advanced-custom-fields": "*",
-        "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/redirection": "*",
         "wpackagist-plugin/duracelltomi-google-tag-manager": "*",
         "wpackagist-plugin/elasticpress": "*",
