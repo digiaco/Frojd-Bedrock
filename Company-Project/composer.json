@@ -28,16 +28,22 @@
     },
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://wpackagist.org"
+          "type": "composer",
+          "url": "https://wpackagist.org",
+          "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
         }
     ],
     "require": {
-        "php": "7.4.*",
-        "composer/installers": "*",
-        "vlucas/phpdotenv": "3.*",
-        "johnpbloch/wordpress": "*",
-        "sentry/sdk": "*",
+        "php": ">=7.4",
+        "composer/installers": "^2.1",
+        "vlucas/phpdotenv": "^5.4",
+        "oscarotero/env": "^2.1",
+        "roots/bedrock-autoloader": "^1.0",
+        "roots/bedrock-disallow-indexing": "^2.0",
+        "roots/wordpress": "5.9.3",
+        "roots/wp-config": "1.0.0",
+        "roots/wp-password-bcrypt": "1.1.0",
+        "roots/acorn": "*",
         "wpackagist-plugin/advanced-custom-fields": "*",
         "wpackagist-plugin/redirection": "*",
         "wpackagist-plugin/duracelltomi-google-tag-manager": "*",
@@ -45,8 +51,21 @@
         "wpackagist-plugin/nginx-cache": "*"
     },
     "require-dev": {
+        "squizlabs/php_codesniffer": "^3.6.2",
+        "roave/security-advisories": "dev-latest",
         "wpackagist-plugin/debug-bar": "*",
         "wpackagist-plugin/debug-bar-elasticpress": "*"
+    },
+    "post-autoload-dump": [
+        "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+    ],
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+          "composer/installers": true,
+          "roots/wordpress-core-installer": true
+        }
     },
     "extra": {
         "installer-paths": {
@@ -55,5 +74,10 @@
             "src/app/themes/{$name}/": ["type:wordpress-theme"]
         },
         "wordpress-install-dir": "src/wp"
+    },
+    "scripts": {
+      "test": [
+        "phpcs"
+      ]      
     }
 }
