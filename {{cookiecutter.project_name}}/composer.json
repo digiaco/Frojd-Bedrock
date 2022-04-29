@@ -78,6 +78,6 @@
     "scripts": {
       "test": [
         "phpcs"
-      ]
+      ]      
     }
 }
