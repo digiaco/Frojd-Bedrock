@@ -10,7 +10,7 @@
             "email": "mikael.engstrom@frojd.se",
             "homepage": "https://github.com/retlehs"
         }
-    ]
+    ],
     "keywords": [
         "bedrock", "roots", "wordpress", "stack", "composer", "docker", "wp"
     ],
