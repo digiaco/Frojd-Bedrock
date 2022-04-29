@@ -64,7 +64,7 @@ references:
     save_cache:
       key: v1-frontend-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
       paths:
-        - ~/repo/src/app/themes/main/dist
+        - ~/repo/src/app/themes/main/public
   restore_ansible: &restore_ansible
     restore_cache:
       key: v1-ansible-{{ checksum "deploy/requirements.txt" }}
@@ -90,9 +90,9 @@ jobs:
     steps:
       - *restore_repo
       - *restore_npm
-      - run: cd src/app/themes/main && yarn
+      - run: cd src/app/themes/main && yarn && yarn build
       - *save_npm
-      - run: cd src/app/themes/main && yarn
+      - run: cd src/app/themes/main && yarn && yarn build
       - *save_frontend
 
   wordpress:
@@ -145,7 +145,7 @@ jobs:
       - *restore_composer
       - *restore_frontend
       - *restore_ansible
-      - run: rm -rf src/app/themes/main/frontend
+      - run: rm -rf src/app/themes/main/resources
       - run:
           command: |
             cd deploy
