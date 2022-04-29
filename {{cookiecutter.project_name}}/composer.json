@@ -22,7 +22,7 @@
         "preferred-install": "dist"
     },
     "autoload": {
-        "psr-4": {
+        "psr-4": {ls
             "Roots\\Sage\\": "src/app/themes/main/src/lib/Sage/"
         }
     },
@@ -43,6 +43,7 @@
         "roots/wordpress": "5.9.3",
         "roots/wp-config": "1.0.0",
         "roots/wp-password-bcrypt": "1.1.0",
+        "roots/acorn": "*",
         "wpackagist-plugin/advanced-custom-fields": "*",
         "wpackagist-plugin/redirection": "*",
         "wpackagist-plugin/duracelltomi-google-tag-manager": "*",
@@ -55,6 +56,9 @@
         "wpackagist-plugin/debug-bar": "*",
         "wpackagist-plugin/debug-bar-elasticpress": "*"
     },
+    "post-autoload-dump": [
+        "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
