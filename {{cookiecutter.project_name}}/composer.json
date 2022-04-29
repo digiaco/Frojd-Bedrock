@@ -22,7 +22,7 @@
         "preferred-install": "dist"
     },
     "autoload": {
-        "psr-4": {ls
+        "psr-4": {
             "Roots\\Sage\\": "src/app/themes/main/src/lib/Sage/"
         }
     },
