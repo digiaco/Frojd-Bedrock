@@ -35,12 +35,12 @@ references:
         - .
   restore_npm: &restore_npm
     restore_cache:
-      key: v1-npm-{{ checksum "src/app/themes/main/frontend/package-lock.json" }}
+      key: v1-npm-{{ checksum "src/app/themes/main/package-lock.json" }}
   save_npm: &save_npm
     save_cache:
-      key: v1-npm-{{ checksum "src/app/themes/main/frontend/package-lock.json" }}
+      key: v1-npm-{{ checksum "src/app/themes/main/package-lock.json" }}
       paths:
-        - ~/repo/src/app/themes/main/frontend/node_modules
+        - ~/repo/src/app/themes/main/node_modules
   restore_composer: &restore_composer
     restore_cache:
       key: v1-composer-{{ checksum "composer.lock" }}
@@ -90,9 +90,9 @@ jobs:
     steps:
       - *restore_repo
       - *restore_npm
-      - run: cd src/app/themes/main/frontend && npm install
+      - run: cd src/app/themes/main && yarn
       - *save_npm
-      - run: cd src/app/themes/main/frontend && npm run build:production
+      - run: cd src/app/themes/main && yarn
       - *save_frontend
 
   wordpress:
@@ -154,11 +154,11 @@ jobs:
             ansible-galaxy install -r requirements.yml
 
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              ansible-playbook deploy.yml -i stages/stage -b --become-user root
+              ansible-playbook deploy.yml -i stages/stage -b
             fi
             
             if [ "${CIRCLE_TAG}" ]; then
-              ansible-playbook deploy.yml -i stages/prod -b --become-user root
+              ansible-playbook deploy.yml -i stages/prod -b
             fi
 
 workflows:
