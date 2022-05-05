@@ -1,6 +1,6 @@
-{{--
+{% raw -%}{{--
   Template Name: Custom Template
---}}
+/* Template Name: Landing Page */
 
 @extends('layouts.app')
 
@@ -10,3 +10,4 @@
     @include('partials.content-page')
   @endwhile
 @endsection
+{% endraw %}
