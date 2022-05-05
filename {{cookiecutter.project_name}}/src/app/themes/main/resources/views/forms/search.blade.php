@@ -1,3 +1,4 @@
+{% raw -%}
 <form role="search" method="get" class="search-form" action="{{ home_url('/') }}">
   <label>
     <span class="sr-only">
@@ -14,3 +15,4 @@
 
   <button>{{ _x('Search', 'submit button', 'sage') }}</button>
 </form>
+{% endraw -%}
