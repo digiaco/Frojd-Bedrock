@@ -75,6 +75,7 @@
     "scripts": {
       "test": [
         "phpcs"
-      ]      
+      ],
+      "build": "cd src/app/themes/main && yarn && yarn build"      
     }
 }
