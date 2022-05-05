@@ -1,3 +1,4 @@
+{% raw -%} 
 <a class="sr-only focus:not-sr-only" href="#main">
   {{ __('Skip to content') }}
 </a>
@@ -15,3 +16,4 @@
   @endif
 
 @include('sections.footer')
+{% endraw -%} 
