@@ -5,9 +5,9 @@
 
   @if (! have_posts())
     <x-alert type="warning">
-      {!! __('Sorry, but the page you are trying to view does not exist.', 'sage') !!}
+    {% raw -%}  {!! __('Sorry, but the page you are trying to view does not exist.', 'sage') !!} {% endraw -%}
     </x-alert>
 
-    {!! get_search_form(false) !!}
+    {% raw -%} {!! get_search_form(false) !!} {% endraw -%}
   @endif
 @endsection

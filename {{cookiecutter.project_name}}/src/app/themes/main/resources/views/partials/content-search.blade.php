@@ -1,3 +1,4 @@
+{% raw -%}
 <article @php(post_class())>
   <header>
     <h2 class="entry-title">
@@ -13,3 +14,4 @@
     @php(the_excerpt())
   </div>
 </article>
+{% endraw -%}

@@ -5,17 +5,17 @@
 
   @if (! have_posts())
     <x-alert type="warning">
-      {!! __('Sorry, no results were found.', 'sage') !!}
+    {% raw -%}  {!! __('Sorry, no results were found.', 'sage') !!} {% endraw -%}
     </x-alert>
 
-    {!! get_search_form(false) !!}
+    {% raw -%} {!! get_search_form(false) !!} {% endraw -%}
   @endif
 
   @while(have_posts()) @php(the_post())
     @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
   @endwhile
 
-  {!! get_the_posts_navigation() !!}
+  {% raw -%} {!! get_the_posts_navigation() !!} {% endraw -%}
 @endsection
 
 @section('sidebar')

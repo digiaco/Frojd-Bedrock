@@ -1,3 +1,4 @@
+{% raw -%}
 <article @php(post_class())>
   <header>
     <h1 class="entry-title">
@@ -17,3 +18,4 @@
 
   @php(comments_template())
 </article>
+{% endraw -%}
