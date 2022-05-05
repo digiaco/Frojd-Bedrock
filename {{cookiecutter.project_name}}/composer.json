@@ -18,9 +18,6 @@
         "issues": "https://github.com/roots/bedrock/issues",
         "forum": "https://discourse.roots.io/category/bedrock"
     },
-    "config": {
-        "preferred-install": "dist"
-    },
     "autoload": {
         "psr-4": {
             "Roots\\Sage\\": "src/app/themes/main/src/lib/Sage/"
