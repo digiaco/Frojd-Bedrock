@@ -74,8 +74,8 @@ This boilerplate uses [semantic versioning](http://semver.org/).
 
 ## Guides
 
-- [Provision and configure a webserver for hosting](https://github.com/Frojd/Frojd-Bedrock/blob/master/docs/provisioning-servers-for-hosting.md)
-- [Setting up deployment on CircleCI](https://github.com/Frojd/Frojd-Bedrock/blob/master/docs/setting-up-deployment-with-circleci.md)
+- [Provision and configure a webserver for hosting](https://github.com/digiaco/Frojd-Bedrock/blob/main/docs/provisioning-servers-for-hosting.md)
+- [Setting up deployment on CircleCI](https://github.com/digiaco/Frojd-Bedrock/blob/main/docs/setting-up-deployment-with-circleci.md)
 
 ## Contributing
 
